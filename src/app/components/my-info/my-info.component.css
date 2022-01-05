@@ -1,5 +1,5 @@
 #info-container {
-    margin-left: 30%;
+    margin-left: 10%;
 }
 
 /* .center-please {
@@ -10,7 +10,7 @@
 .card {
     box-shadow: 4px 4px 4px rgb(78, 78, 78);
     margin-top: 5px;
-    width: 70%;
+    width: 90%;
 }
 
 .card-header {
