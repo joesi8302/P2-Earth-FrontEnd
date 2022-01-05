@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-login',
@@ -11,10 +13,27 @@ export class LoginComponent implements OnInit {
   usernameInput: string = "";
   passwordInput: string = "";
 
-  constructor() { }
+  constructor(private apiServ: ApiService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  login(){
+    this.apiServ.login(this.usernameInput, this.passwordInput).subscribe((responseBody: { data: any; message: string; }) => {
+      console.log(responseBody);
+      if(responseBody.data){
+        this.router.navigate([" "]);
+      } else{
+        this.errMessage = responseBody.message;
+      }
+
+    })
+}
+
+checkSession(){
+  this.apiServ.checkSession().subscribe((responseBody: any) => {
+    console.log(responseBody);
+  })
+}
 
 }
