@@ -1,1 +1,25 @@
-<p>login works!</p>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+<div class="content">
+    <h3 class="login-title">Login</h3>
+    <form onsubmit="login(event)" class="form1">
+      
+      <!-- <p class="forgot" align="center"><a href="#">Forgot Password?</p>  -->
+        <div class="err" *ngIf="errMessage">{{errMessage}}</div>
+        <div>
+            <input type="text" class="un " [(ngModel)]="usernameInput" placeholder="username" name="username">
+        </div>
+        <div>
+            <input type="password" class="pass" [(ngModel)]="passwordInput" placeholder="password" name="password">
+        </div>
+        <div>
+            <button class="login" id="login-btn">Login</button>
+        </div>    
+        <br>
+        <a href="" class="forgot">Forgot Password?</a>
+        <!-- <button class="check-session" id="check-session-btn" (click)="checkSession()">Check Session</button>  -->
+        <!-- <a href="" class="check-session" id="check-session-btn" (click)="checkSession()">Check Session</a> -->
+    </form>     
+    </div>
+
+    <script src="./script.js"></script>

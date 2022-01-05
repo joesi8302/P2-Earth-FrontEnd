@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
+
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +15,8 @@ import { PostsComponent } from './components/posts/posts.component';
 import { MyInfoComponent } from './components/my-info/my-info.component';
 import { PublicInfoComponent } from './components/public-info/public-info.component';
 import { PostListComponent } from './components/post-list/post-list.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -36,8 +37,8 @@ import { PostListComponent } from './components/post-list/post-list.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
