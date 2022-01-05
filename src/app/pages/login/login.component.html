@@ -2,7 +2,7 @@
 
 <div class="content">
     <h3 class="login-title">Login</h3>
-    <form onsubmit="login(event)" class="form1">
+    <form (submit)="login()" class="form1">
       
       <!-- <p class="forgot" align="center"><a href="#">Forgot Password?</p>  -->
         <div class="err" *ngIf="errMessage">{{errMessage}}</div>
