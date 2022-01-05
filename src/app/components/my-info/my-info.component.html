@@ -1,1 +1,34 @@
-<p>my-info works!</p>
+
+<div id="info-container">
+    <div class="card">
+        <div class="card-header">
+            <h5>New Ticket</h5>
+        </div>
+        <div class="card-body">
+            <div class="card-text">
+                <div class="amount">
+                    <span>$</span>
+                    <input type="text" id="amount" placeholder="Amount"/> 
+                </div>
+                <div class="description">
+                    <span>Description: </span>
+                    <input type="text" id="description"/> 
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      Ticket Type
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <li><button class="dropdown-item" onclick="ChangeText('Lodging')" id="lodging">Lodging</button></li>
+                      <li><button class="dropdown-item" onclick="ChangeText('Travel')" id="travel">Travel</button></li>
+                      <li><button class="dropdown-item" onclick="ChangeText('Food')" id="food">Food</button></li>
+                      <li><button class="dropdown-item" onclick="ChangeText('Other')" id="other">Other</button></li>
+                    </ul>
+                    <input type="text" id="input" disabled/>
+                </div>
+                
+            </div>
+            <button type="button" id="type" class="btn btn-secondary" onclick="makeReimbursment()">Accept</button>
+        </div>
+    </div>
+  </div>
