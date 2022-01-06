@@ -9,7 +9,7 @@ import { FeedComponent } from './pages/feed/feed.component';
 const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'forget-password', component: ForgetPasswordComponent},
-  {path: 'login', component: LoginComponent},
+  {path: '', component: LoginComponent},
   {path: 'account', component: AccountComponent},
   {path: 'feed', component: FeedComponent}
 ];

@@ -22,12 +22,15 @@ export class LoginComponent implements OnInit {
     this.apiServ.login(this.usernameInput, this.passwordInput).subscribe((responseBody: { data: any; message: string; }) => {
       console.log(responseBody);
       if(responseBody.data){
-        this.router.navigate([" "]);
+        this.apiServ.storeUsername(responseBody.data.username)
+        this.router.navigate(["account"]);
       } else{
         this.errMessage = responseBody.message;
       }
 
+
     })
+    
 }
 
 checkSession(){

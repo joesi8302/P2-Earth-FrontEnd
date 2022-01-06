@@ -10,18 +10,26 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class NavbarComponent implements OnInit {
 
-  @Input()
-  pageName: string = "";
+  serviceUsername: String = "";
 
   constructor(private httpCli: HttpClient, private apiServ: ApiService, private router: Router) { }
 
   ngOnInit(): void {
+    this.apiServ.checkSession().subscribe(responseBody =>{
+      if(responseBody.data){
+        this.serviceUsername = responseBody.data.username;
+      }
+    })
   }
 
   logout(){
     return this.httpCli.delete<any>("http://localhost:9000/session", {
       withCredentials: true
     })
+  }
+
+  personalAccount(){
+    this.apiServ.storeUsername(this.serviceUsername);
   }
 
 }

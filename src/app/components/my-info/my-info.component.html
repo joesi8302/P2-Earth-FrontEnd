@@ -2,13 +2,13 @@
 <div id="info-container">
     <div class="card">
         <div class="card-header">
-            <h5>User Full name goes here</h5>
+            <h5>{{this.user.user_first_name + " " + this.user.user_last_name}}</h5>
         </div>
         <div class="card-body">
             <div class="card-text">
                 <div class="description">
                     <span>username: </span>
-                    <input type="text" id="username" placeholder="add variable here"/> 
+                    <input type="text" id="username" placeholder="{{this.user.username}}"/> 
                 </div>
                 <div class="description">
                     <span>password: </span>
@@ -16,19 +16,20 @@
                 </div>
                 <div class="description">
                     <span>firstname: </span>
-                    <input type="text" id="firstname" placeholder="add variable here"/> 
+                    <input type="text" id="firstname" placeholder="{{this.user.user_first_name}}"/> 
                 </div>
                 <div class="description">
                     <span>lastname: </span>
-                    <input type="text" id="lastname" placeholder="add variable here"/> 
+                    <input type="text" id="lastname" placeholder="{{this.user.user_last_name}}"/> 
                 </div>
                 <div class="description">
                     <span>email: </span>
-                    <input type="text" id="email" placeholder="add variable here"/> 
+                    <input type="text" id="email" placeholder="{{this.user.user_email}}"/> 
                 </div>
                 <div class="description">
-                    <span>profile picture: </span>
-                    <input type="file" id="profile picture"/> 
+                    <img src="{{this.user.user_img}}" alt="testImg">
+                    <br>
+                    <input type="file">
                 </div>
             </div>
                 <button type="button" id="type" class="btn btn-secondary" onclick="makeReimbursment()">Accept</button>

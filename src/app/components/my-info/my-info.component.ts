@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { User } from 'src/app/models/User';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-my-info',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyInfoComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  user: User = <User>{};
+
+  constructor(private apiServ: ApiService) { }
 
   ngOnInit(): void {
+    
   }
 
 }
