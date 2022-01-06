@@ -1,5 +1,5 @@
 #info-container {
-    margin-left: 10%;
+    margin: 10%;
 }
 
 /* .center-please {
@@ -15,14 +15,15 @@
 
 .card-header {
     display: flex;
-    justify-content: center;
+    justify-content: left;
 }
 
 .card-text div{
     padding: 4px;
     border-radius: 8px;
-    background-color: rgb(197, 197, 197);
     margin: 4px;
+    display: flex;
+    justify-content: center;
 }
 
 .buttons{
@@ -36,3 +37,4 @@ body {
 #description {
     width: 100%;
 }
+
