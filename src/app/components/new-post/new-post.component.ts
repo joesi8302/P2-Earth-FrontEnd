@@ -9,25 +9,45 @@ import { ApiService } from 'src/app/services/api.service';
 export class NewPostComponent implements OnInit {
 
   descriptionInput: String = "";
-  postImgInput: File = <File>{};
+  // postImgInput: File = <File>{};
+  public postImgInput: FileList = <FileList> {}
   
 
-  constructor(private apiServ: ApiService) { }
+  constructor(private apiServ: ApiService) {  }
 
   ngOnInit(): void {
   }
 
   handleFileInput(event :any) {
-    this.postImgInput = event.target.file;
+    this.postImgInput = event.target.files;
   }
+
 createPost(){
 
-    const formData = new FormData();
-    formData.append('postImg', this.postImgInput);
-    formData.append('description', JSON.stringify(this.descriptionInput))
+  console.log(this.postImgInput);
 
-    this.apiServ.createPost(formData).subscribe(responseBody =>{
-      console.log(responseBody);
-    })
+    // const formData = new FormData();
+    // for(const file of this.postImgInput) {
+    //   formData.append('postImg', file, file.name);
+    // }
+
+    // formData.append('description', JSON.stringify(this.descriptionInput))
+
+    // this.apiServ.createPost(formData).subscribe(responseBody =>{
+    //   console.log(responseBody);
+    // })
+
+    if(this.postImgInput.length > 0) {
+        let file: File = this.postImgInput[0];
+        let formData:FormData = new FormData();
+        formData.append("postImg", file, file.name);
+        formData.append("description", JSON.stringify(this.descriptionInput));
+        
+        this.apiServ.createPost(formData).subscribe(responseBody =>{
+          console.log(responseBody);
+        })
+      }
+
+
   }
 }

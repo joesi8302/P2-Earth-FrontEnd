@@ -86,10 +86,8 @@ export class ApiService {
   // }
 
   createPost(formData : FormData){
-    return this.httpCli.post<any>(`http://localhost:9000/posts`,{ 
-      formData
-    }, 
-    {withCredentials: true,
+    return this.httpCli.post<any>(`http://localhost:9000/posts`, formData, 
+    {withCredentials: true
      })
   }
 
