@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -75,6 +75,31 @@ export class ApiService {
     console.log("returned" + this.storedUsername);
     return this.storedUsername;
   }
+
+  // createPost(postImg: File, description: String){
+  //   return this.httpCli.post<any>(`http://localhost:9000/posts`,{ 
+  //     "postImg": postImg,
+  //     "description": description
+  //   }, 
+  //   {withCredentials: true,
+  //    headers: new HttpHeaders({ "Content-Type": "multipart/form-data" })})
+  // }
+
+  createPost(formData : FormData){
+    return this.httpCli.post<any>(`http://localhost:9000/posts`,{ 
+      formData
+    }, 
+    {withCredentials: true,
+     })
+  }
+
+  // headers: new HttpHeaders({ "Content-Type": "multipart/form-data" 
+
+
+  getAllPosts(){
+    return this.httpCli.get<any>(`http://localhost:9000/posts` ,{ withCredentials: true }) 
+  }
+  
 
 
 }

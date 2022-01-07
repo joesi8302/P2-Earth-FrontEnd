@@ -14,16 +14,16 @@
             <span>Description:</span>
             <div class="reimbDescription">
                 
-                <textarea id="description" placeholder="Put Description Here"> </textarea> 
+                <textarea id="description" placeholder="Put Description Here" [(ngModel)]="descriptionInput"> </textarea> 
             </div>
             <div class="reimbSubmitted">
                 <img src="">
                     <br>
-                    <input type="file">
+                    <input type="file" id="postImgInput" (change)="handleFileInput($event)">>
             </div>
         </div>
         <div class="modal-footer">
-            <button class="btn btn-primary">Confirm</button>
+            <button class="btn btn-primary" (click)="createPost()">Confirm</button>
         </div>
     </div>
     </div>
