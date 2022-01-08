@@ -1,0 +1,40 @@
+#info-container {
+    margin: 10%;
+}
+
+/* .center-please {
+    display: flex;
+    justify-content: center;
+} */
+
+.card {
+    box-shadow: 4px 4px 4px rgb(78, 78, 78);
+    margin-top: 5px;
+    width: 90%;
+}
+
+.card-header {
+    display: flex;
+    justify-content: left;
+}
+
+.card-text div{
+    padding: 4px;
+    border-radius: 8px;
+    margin: 4px;
+    display: flex;
+    justify-content: center;
+}
+
+.buttons{
+    justify-content: right;
+}
+
+body {
+    background-color: rgb(158, 154, 154)!important;
+}
+
+#description {
+    width: 100%;
+}
+

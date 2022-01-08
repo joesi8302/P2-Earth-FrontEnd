@@ -7,23 +7,23 @@
             <div class="card-text">
                 <div class="description">
                     <span>username: </span>
-                    <input type="text" id="username" placeholder="add variable here" disabled/> 
+                    <input type="text" id="username" placeholder="{{this.user.username}}" disabled/> 
                 </div>
                 <div class="description">
                     <span>firstname: </span>
-                    <input type="text" id="firstname" placeholder="add variable here" disabled/> 
+                    <input type="text" id="firstname" placeholder={{this.user.user_first_name}} disabled/> 
                 </div>
                 <div class="description">
                     <span>lastname: </span>
-                    <input type="text" id="lastname" placeholder="add variable here" disabled/> 
+                    <input type="text" id="lastname" placeholder="{{this.user.user_last_name}}" disabled/> 
                 </div>
                 <div class="description">
                     <span>email: </span>
-                    <input type="text" id="email" placeholder="add variable here" disabled/> 
+                    <input type="text" id="email" placeholder="{{this.user.user_email}}" disabled/> 
                 </div>
                 <div class="description">
                     <span>profile picture: </span>
-                    <input type="file" id="profile picture"/> // put the picture here
+                    <img src="{{this.user.user_img}}" alt="testImg">
                 </div>
             </div>
         </div>

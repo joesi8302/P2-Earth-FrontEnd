@@ -1,4 +1,5 @@
 <app-navbar></app-navbar>
 <p>account works!</p>
-<app-my-info [user]="this.user"></app-my-info>
+<app-my-info [user]="this.user" *ngIf="currentAccount"></app-my-info>
+<app-public-info [user]="this.user" *ngIf="!currentAccount"></app-public-info>
 <app-new-post></app-new-post>

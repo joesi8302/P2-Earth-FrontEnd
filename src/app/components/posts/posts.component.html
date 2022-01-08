@@ -1,23 +1,23 @@
 <div id="info-container">
     <div class="card">
         <div class="card-header">
-                <img src="https://hello-s3-js.s3.us-west-1.amazonaws.com/project/JimboBagginsProfileImg" alt="testImg" width=50px>
-                <h5>User Full name goes here</h5>
+                <img src="{{this.post.user.user_img}}" alt="userImg" width=50px>
+                <h5>{{this.post.user.username}}</h5>
         </div>
         <div class="card-body">
             <div class="card-text">
                 <div class="description" id="postimg">
-                    <img src="https://hello-s3-js.s3.us-west-1.amazonaws.com/project/JimboBagginsProfileImg" alt="testImg">
+                    <img src="{{this.post.post_img}}" alt="postImg">
                 </div>
                 <div class="description">
-                    <textarea id="description" disabled> put description here </textarea> 
+                    <textarea id="description" disabled> {{this.post.post_description}} </textarea> 
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<div id="info-container">
+<!-- <div id="info-container">
     <div class="card">
         <div class="card-header">
                 <img src="https://hello-s3-js.s3.us-west-1.amazonaws.com/project/JimboBagginsProfileImg" alt="testImg" width=50px>
@@ -34,4 +34,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
