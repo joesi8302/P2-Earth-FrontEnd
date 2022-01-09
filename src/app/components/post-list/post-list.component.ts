@@ -9,6 +9,7 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class PostListComponent implements OnInit {
 
+  pageNumber: number = 1;
 
   postList: Array<Post> = [];
 
@@ -19,15 +20,16 @@ export class PostListComponent implements OnInit {
   }
 
   getAllPosts(){
-    this.apiServ.getAllPosts().subscribe(responseBody => {
+    this.apiServ.getAllPosts(this.pageNumber).subscribe(responseBody => {
       console.log(responseBody);
       this.postList = responseBody.data;
     })
+
   }
 
   goToAccount(username: string){
     this.apiServ.storeUsername(username);
-    
+
   }
 
 }

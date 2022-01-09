@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Session } from 'src/app/models/Session';
 import { User } from 'src/app/models/User';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -12,10 +13,44 @@ export class MyInfoComponent implements OnInit {
   @Input()
   user: User = <User>{};
 
+  usernameInput: string = "";
+  passwordInput: string = "";
+  firstNameInput: string = "";
+  lastNameInput: string = "";
+  public imgInput: FileList = <FileList> {}
+  emailInput: string = "";
+
+  checkSession: Session = <Session>{};
+
+
   constructor(private apiServ: ApiService) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    var response2 = await this.apiServ.checkSession().toPromise();
+    this.checkSession = response2.data;
+    console.log(this.checkSession.user_id);
     
+  }
+
+  handleFileInput(event :any) {
+    this.imgInput = event.target.files;
+  }
+
+  updateUser(){
+
+    let file: File = this.imgInput[0];
+    let formData:FormData = new FormData();
+    formData.append("id", JSON.stringify(this.checkSession.user_id));
+    formData.append("username", JSON.stringify(this.usernameInput));
+    formData.append("password", JSON.stringify(this.passwordInput));
+    formData.append("user_first_name", JSON.stringify(this.firstNameInput));
+    formData.append("user_last_name", JSON.stringify(this.lastNameInput));
+    formData.append("user_img", file, file.name);
+    formData.append("user_email", JSON.stringify(this.emailInput));
+
+    this.apiServ.updateUser(formData).subscribe(responseBody => {
+      console.log(responseBody.data);
+    })
   }
 
 }

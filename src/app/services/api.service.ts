@@ -48,16 +48,8 @@ export class ApiService {
     return this.httpCli.get<any>(`http://localhost:9000/users/${username}`, {withCredentials: true})
   }
 
-  updateUser(id: number, username: String, password: String, firstname: string, lastname: string, user_img: File, user_email: String) : Observable<any>{
-    return this.httpCli.put<any>(`http://localhost:9000/users`,{
-      "id": id,
-      "username": username,
-      "password": password,
-      "user_first_name": firstname,
-      "user_last_name": lastname,
-      "user_img": user_img,
-      "user_email": user_email
-    })
+  updateUser(formData : FormData) : Observable<any>{
+    return this.httpCli.put<any>(`http://localhost:9000/users`, formData)
   }
 
   resetPassword(user_email: String) : Observable<any>{
@@ -94,8 +86,8 @@ export class ApiService {
   // headers: new HttpHeaders({ "Content-Type": "multipart/form-data" 
 
 
-  getAllPosts() : Observable<any>{
-    return this.httpCli.get<any>(`http://localhost:9000/posts` ,{ withCredentials: true }) 
+  getAllPosts(page: number) : Observable<any>{
+    return this.httpCli.get<any>(`http://localhost:9000/post` ,{ withCredentials: true }) 
   }
   
 
