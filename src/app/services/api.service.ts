@@ -52,10 +52,8 @@ export class ApiService {
     return this.httpCli.put<any>(`http://localhost:9000/users`, formData)
   }
 
-  resetPassword(user_email: String) : Observable<any>{
-    return this.httpCli.put<any>(`http://localhost:9000/users/reset`,{
-      "user_email": user_email
-    })
+  resetPassword(formData : FormData) : Observable<any>{
+    return this.httpCli.put<any>(`http://localhost:9000/users/reset`, formData)
   }
 
   storeUsername(username: String){
