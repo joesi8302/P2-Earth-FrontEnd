@@ -84,7 +84,15 @@ export class ApiService {
   // headers: new HttpHeaders({ "Content-Type": "multipart/form-data" 
 
 
-  getAllPosts(page: number) : Observable<any>{
+  getAllPosts() : Observable<any>{
+    return this.httpCli.get<any>(`http://localhost:9000/posts` ,{ withCredentials: true }) 
+  }
+
+  getAllUserPosts(username: String) : Observable<any>{
+    return this.httpCli.get<any>(`http://localhost:9000/posts/` ,{ withCredentials: true }) 
+  }
+
+  getAllPostsPage(page: number) : Observable<any>{
     return this.httpCli.get<any>(`http://localhost:9000/post` ,{ withCredentials: true }) 
   }
   

@@ -17,6 +17,8 @@ import { PublicInfoComponent } from './components/public-info/public-info.compon
 import { PostListComponent } from './components/post-list/post-list.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { PostListAccountComponent } from './components/post-list-account/post-list-account.component';
 
 
 @NgModule({
@@ -32,13 +34,15 @@ import { FormsModule } from '@angular/forms';
     PostsComponent,
     MyInfoComponent,
     PublicInfoComponent,
-    PostListComponent
+    PostListComponent,
+    PostListAccountComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
