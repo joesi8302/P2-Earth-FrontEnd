@@ -23,9 +23,11 @@ export class NavbarComponent implements OnInit {
   }
 
   logout(){
-    return this.httpCli.delete<any>("http://localhost:9000/session", {
-      withCredentials: true
+
+    return this.apiServ.logout().subscribe(responseBody => {
+      this.router.navigate([("../")])
     })
+    
   }
 
   personalAccount(){

@@ -12,10 +12,22 @@ export class LoginComponent implements OnInit {
   errMessage: string = "";
   usernameInput: string = "";
   passwordInput: string = "";
+  serviceUsername: any;
 
   constructor(private apiServ: ApiService, private router: Router) { }
 
   ngOnInit(): void {
+    this.apiServ.checkSession().subscribe({ next: responseBody =>{
+      if(responseBody.data){
+        this.router.navigate(["/account"]);
+      }
+      else{
+        this.router.navigate(["/"])
+      }
+    },
+    error: badRequest => {
+
+    }});
   }
 
   login(){
@@ -33,10 +45,5 @@ export class LoginComponent implements OnInit {
     
 }
 
-checkSession(){
-  this.apiServ.checkSession().subscribe((responseBody: any) => {
-    console.log(responseBody);
-  })
-}
 
 }

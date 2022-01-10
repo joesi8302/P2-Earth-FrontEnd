@@ -17,7 +17,7 @@ export class AccountComponent implements OnInit {
   constructor(private apiServ: ApiService) { }
 
   async ngOnInit(): Promise<void> {
-    let checkUsername = this.apiServ.grabUsername()
+    let checkUsername = await this.apiServ.grabUsername();
     console.log("checkUsername: " + checkUsername);
 
     var response = await this.apiServ.getOneUser(checkUsername).toPromise();
