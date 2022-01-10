@@ -24,20 +24,26 @@
 <form (submit)="registerUser()" class="form1">
  <!-- <p class="forgot" align="center"><a href="#">Forgot Password?</p>  -->
     <div class="err" *ngIf="errMessage">{{errMessage}}</div>
-    <div>
-        <input type="text" class="un" [(ngModel)]="usernameInput" placeholder="Enter your email ..." name="username">
+    <div class="form-item">
+        <input type="text" id="username" class="un " name="username" [(ngModel)]="usernameInput"  placeholder="username"/> 
     </div>
-    <div>
-        <input type="password" class="pass" [(ngModel)]="passwordInput" placeholder="Password" name="password">
+    <div class="form-item">
+        <input type="text" id="password" class="un " name="password" [(ngModel)]="passwordInput" placeholder="Please enter a password"/> 
     </div>
-    <div>
-        <input type="firstname" class="un" [(ngModel)]="firstNameInput" placeholder="First Name" name="firstname">
+    <div class="form-item">
+        <input type="text" id="firstname" class="un " name="firstName" [(ngModel)]="firstNameInput" placeholder="First Name"/> 
     </div>
-    <div>
-        <input type="lastname" class="un" [(ngModel)]="lastNameInput" placeholder="Last Name" name="password">
+    <div class="form-item">
+        <input type="text" id="lastname" class="un " name="lastName" [(ngModel)]="lastNameInput" placeholder="Last Name"/> 
     </div>
-    <div>
-        <button class="login" id="login-btn">Register</button>
+    <div class="form-item">
+        <input type="text" id="email" class="un " name="email" [(ngModel)]="emailInput" placeholder="Email"/> 
+    </div>
+    <div class="form-item">
+        <input type="file" class="un " name="fileimg" (change)="handleFileInput($event)">
+    </div>
+    <div class="form-item">
+        <button class="login" id="login-btn" name="button" >Register</button>
     </div>    
     <br>
 </form>  

@@ -12,6 +12,12 @@
             box-shadow: rgb(184, 175, 173);
         
         }
+
+        .err{
+            color: red;
+            display: flex;
+            justify-content: center;
+        }
     
         
         .content {

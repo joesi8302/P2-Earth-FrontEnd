@@ -19,17 +19,17 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    this.apiServ.login(this.usernameInput, this.passwordInput).subscribe((responseBody: { data: any; message: string; }) => {
+    this.apiServ.login(this.usernameInput, this.passwordInput).subscribe({next: responseBody => {
       console.log(responseBody);
       if(responseBody.data){
-        this.apiServ.storeUsername(responseBody.data.username)
+        this.apiServ.storeUsername(responseBody.data.username);
         this.router.navigate(["account"]);
-      } else{
-        this.errMessage = responseBody.message;
       }
 
-
-    })
+    },
+    error: badRequest => {
+      this.errMessage = badRequest.error.response;
+    }})
     
 }
 

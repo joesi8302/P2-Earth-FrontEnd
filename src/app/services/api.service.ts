@@ -12,15 +12,8 @@ export class ApiService {
   constructor(private httpCli: HttpClient) { }
 
 
-  register(username: string, password: string, firstname: string, lastname: string, user_img: File, user_email: String){
-    return this.httpCli.post<any>("http://localhost:9000/user",{
-      "username": username,
-      "password": password,
-      "user_first_name": firstname,
-      "user_last_name": lastname,
-      "user_img": user_img,
-      "user_email": user_email
-    })
+  register(formData:FormData) : Observable<any> {
+    return this.httpCli.post<any>("http://localhost:9000/users", formData)
   }
 
   login(username: string, password: string) : Observable<any> {
