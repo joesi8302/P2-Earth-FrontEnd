@@ -1,5 +1,6 @@
 #info-container {
     margin-left: 10%;
+    margin-bottom: 15px;
 }
 
 /* .center-please {
@@ -8,20 +9,22 @@
 } */
 
 .card {
-    box-shadow: 4px 4px 4px rgb(78, 78, 78);
+    box-shadow: 4px 4px 4px #262a30;
     margin-top: 5px;
     width: 90%;
+    background-color: #262a30;
 }
 
 .card-header {
     display: flex;
     justify-content: center;
+    color: grey;
 }
 
 .card-text div{
     padding: 4px;
     border-radius: 8px;
-    background-color: rgb(197, 197, 197);
+    background-color: whitesmoke;
     margin: 4px;
 }
 

@@ -3,9 +3,10 @@
 }
 
 .card {
-    box-shadow: 4px 4px 4px rgb(78, 78, 78);
+    box-shadow: 4px 4px 4px #262a30;;
     margin-top: 5px;
     width: 90%;
+    background-color: #262a30;
 }
 
 .card-header {
