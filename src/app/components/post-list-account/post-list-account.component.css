@@ -1,0 +1,55 @@
+#info-container {
+    margin: 10%;
+}
+
+.card {
+    box-shadow: 4px 4px 4px rgb(78, 78, 78);
+    margin-top: 5px;
+    width: 90%;
+}
+
+
+#postImage{
+    height: 50%;
+    width: 50%;
+    object-fit: contain;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-text div{
+    padding: 4px;
+    border-radius: 8px;
+    margin: 4px;
+    display: flex;
+    justify-content: center;
+}
+
+.buttons{
+    justify-content: right;
+}
+
+body {
+    background-color: rgb(158, 154, 154)!important;
+}
+
+#description {
+    width: 100%;
+}
+
+#userinfo {
+    display: flex;
+}
+
+#userinfo h5 {
+    padding-top: 2%;
+    padding-left: 2%;
+}
+
+#userinfo img {
+    width: 10%;
+    height: min-content;
+}

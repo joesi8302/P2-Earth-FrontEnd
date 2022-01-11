@@ -3,10 +3,23 @@
 }
 
 .card {
-    box-shadow: 4px 4px 4px #262a30;;
+    box-shadow: 4px 4px 4px rgb(78, 78, 78);
     margin-top: 5px;
     width: 90%;
-    background-color: #262a30;
+}
+
+#pageNum{
+    color:black !important;
+}
+
+#postImage{
+    height: 50%;
+    width: 50%;
+    object-fit: contain;
+}
+
+div{
+    color: white;
 }
 
 .card-header {

@@ -86,7 +86,11 @@ export class ApiService {
   }
 
   getAllPostsPage(page: number) : Observable<any>{
-    return this.httpCli.get<any>(`http://localhost:9000/post` ,{ withCredentials: true }) 
+    return this.httpCli.get<any>(`http://localhost:9000/pagedposts/${page}` ,{ withCredentials: true }) 
+  }
+
+  getAllPostsUserPage(page: number, userId: number) : Observable<any>{
+    return this.httpCli.get<any>(`http://localhost:9000/pagedposts/${page}/${userId}` ,{ withCredentials: true }) 
   }
   
 

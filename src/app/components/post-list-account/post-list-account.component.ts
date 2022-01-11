@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from 'src/app/models/Post';
+import { User } from 'src/app/models/User';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -9,14 +10,23 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class PostListAccountComponent implements OnInit {
 
-  p: number = 1;
+  page: number = 1;
+  user: User = <User>{};
 
   postList: Array<Post> = [];
 
   constructor(private apiServ: ApiService) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.getAllPosts();
+
+    let checkUsername = await this.apiServ.grabUsername();
+    console.log("checkUsername: " + checkUsername);
+
+    var response = await this.apiServ.getOneUser(checkUsername).toPromise();
+    this.user = response.data;
+    console.log(this.user.userId);
+
   }
 
   getAllPosts(){
@@ -25,6 +35,37 @@ export class PostListAccountComponent implements OnInit {
       this.postList = responseBody.data;
     })
 
+  }
+
+  incrementPage(){
+    this.page++;
+    this.apiServ.getAllPostsUserPage(this.page, this.user.userId).subscribe(responseBody => {
+      console.log(responseBody);
+      if(responseBody.data == 0){
+        this.page--;
+        console.log(this.postList.length);  
+      }
+      else{
+        this.postList = responseBody.data;
+      }
+    })
+
+  }
+
+  decrementPage(){
+    this.page--;
+    if(this.page < 0){
+      this.page = 0;
+    }
+    this.apiServ.getAllPostsUserPage(this.page, this.user.userId).subscribe(responseBody => {
+      console.log(responseBody);
+      if(responseBody.data.lentgh == 0){
+          this.page++;
+        }
+      else{
+        this.postList = responseBody.data;
+      }     
+    })
   }
 
 }

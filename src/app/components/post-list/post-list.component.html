@@ -1,11 +1,14 @@
 
 
-<pagination-controls (pageChange)="p = $event"></pagination-controls>
-
-<div *ngFor="let post of postList | paginate: {itemsPerPage: 5, currentPage: p} " class="post-item">
+<div>
+    <button (click)="decrementPage()">Previous Page</button>
+    <span id="pageNum" >{{page}}</span>
+    <button (click)="incrementPage()">Next Page</button>
+</div> 
+<div *ngFor="let post of postList " class="post-item">
     <!-- <app-posts [post]={{post}}></app-posts> -->
     <div id="info-container">
-        <div class="card bg-dark mb-3" style="max-width: 18rem;">
+        <div class="card bg-dark mb-3">
             <div class="card-header">
                 <div>
                     <img src={{post.user.user_img}} alt="userImg" width=50px>
@@ -19,7 +22,7 @@
             <div class="card-body">
                 <div class="card-text">
                     <div class="description" id="postimg">
-                        <img src= {{post.post_img}} alt="postImg">
+                        <img id="postImage" src= {{post.post_img}} alt="postImg">
                     </div>
                     <div class="description">
                         <textarea id="description" disabled> {{this.post.post_description}} </textarea> 

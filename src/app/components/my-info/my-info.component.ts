@@ -41,12 +41,12 @@ export class MyInfoComponent implements OnInit {
     let file: File = this.imgInput[0];
     let formData:FormData = new FormData();
     formData.append("id", JSON.stringify(this.checkSession.user_id));
-    formData.append("username", JSON.stringify(this.usernameInput));
-    formData.append("password", JSON.stringify(this.passwordInput));
-    formData.append("user_first_name", JSON.stringify(this.firstNameInput));
-    formData.append("user_last_name", JSON.stringify(this.lastNameInput));
+    formData.append("username", this.usernameInput);
+    formData.append("password", this.passwordInput);
+    formData.append("user_first_name", this.firstNameInput);
+    formData.append("user_last_name", this.lastNameInput);
     formData.append("user_img", file, file.name);
-    formData.append("user_email", JSON.stringify(this.emailInput));
+    formData.append("user_email", this.emailInput);
 
     this.apiServ.updateUser(formData).subscribe(responseBody => {
       console.log(responseBody.data);

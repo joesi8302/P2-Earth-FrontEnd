@@ -10,7 +10,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 })
 export class PostListComponent implements OnInit {
 
-  p: number = 1;
+  page: number = 0;
 
   postList: Array<Post> = [];
 
@@ -21,9 +21,10 @@ export class PostListComponent implements OnInit {
   }
 
   getAllPosts(){
-    this.apiServ.getAllPosts().subscribe(responseBody => {
+    this.apiServ.getAllPostsPage(this.page).subscribe(responseBody => {
       console.log(responseBody);
       this.postList = responseBody.data;
+      
     })
 
   }
@@ -31,6 +32,37 @@ export class PostListComponent implements OnInit {
   goToAccount(username: string){
     this.apiServ.storeUsername(username);
 
+  }
+
+  incrementPage(){
+    this.page++;
+    this.apiServ.getAllPostsPage(this.page).subscribe(responseBody => {
+      console.log(responseBody);
+      if(responseBody.data == 0){
+        this.page--;
+        console.log(this.postList.length);  
+      }
+      else{
+        this.postList = responseBody.data;
+      }
+    })
+
+  }
+
+  decrementPage(){
+    this.page--;
+    if(this.page < 0){
+      this.page = 0;
+    }
+    this.apiServ.getAllPostsPage(this.page).subscribe(responseBody => {
+      console.log(responseBody);
+      if(responseBody.data.lentgh == 0){
+          this.page++;
+        }
+      else{
+        this.postList = responseBody.data;
+      }     
+    })
   }
 
 }

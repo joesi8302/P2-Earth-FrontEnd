@@ -22,19 +22,19 @@ export class AccountComponent implements OnInit {
 
     var response = await this.apiServ.getOneUser(checkUsername).toPromise();
     this.user = response.data;
-    console.log(this.user.user_id);
+    console.log(this.user.userId);
 
     var response2 = await this.apiServ.checkSession().toPromise();
     this.checkSession = response2.data;
     console.log(this.checkSession.user_id);
 
-    if(this.checkSession.user_id == this.user.user_id){
+    if(this.checkSession.user_id == this.user.userId){
       this.currentAccount = true;
     }
     else{
       this.currentAccount = false;
     }
-    console.log((this.checkSession.user_id == this.user.user_id))
+    console.log((this.checkSession.user_id == this.user.userId))
 
     // await this.apiServ.getOneUser(checkUsername).subscribe(responseBody =>{
     //   console.log(responseBody)
