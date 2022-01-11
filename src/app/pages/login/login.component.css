@@ -108,6 +108,26 @@
             align-items: center;
         }
 
+        .register {
+            cursor: pointer;
+              border-radius: 5em;
+              color: #fff;
+              background: linear-gradient(to right, #001531, #001531);
+              border: 0;
+              padding-left: 50px;
+              padding-right: 40px;
+              padding-bottom: 10px;
+              padding-top: 10px;
+              font-family: 'Ubuntu', sans-serif;
+              margin-left: 36%;
+              margin-top: 10px;
+              font-size: 13px;
+              box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+              display: flex;
+              justify-content: space-evenly;
+              align-items: center;
+          }
+
         /* .check-session {
             cursor: pointer;
               border-radius: 5em;
