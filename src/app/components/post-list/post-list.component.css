@@ -39,6 +39,10 @@ div{
     justify-content: right;
 }
 
+.page-buttons{
+    margin-left: 123px;
+}
+
 body {
     background-color: rgb(158, 154, 154)!important;
 }

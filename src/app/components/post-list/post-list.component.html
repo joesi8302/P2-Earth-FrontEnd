@@ -1,10 +1,10 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-<div>
-    <button class="btn btn-dark" (click)="decrementPage()">Previous Page</button>
-    <span id="pageNum" >{{displayPage}}</span>
-    <button class="btn btn-dark" (click)="incrementPage()">Next Page</button>
+<div class="page-buttons">
+    <button class="btn btn-dark" (click)="decrementPage()">Prev</button>
+    <span id="pageNum" ><b>{{displayPage}}</b></span>
+    <button class="btn btn-dark" (click)="incrementPage()">Next</button>
 </div> 
 <div *ngFor="let post of postList " class="post-item">
     <!-- <app-posts [post]={{post}}></app-posts> -->
