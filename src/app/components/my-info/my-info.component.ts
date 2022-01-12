@@ -13,6 +13,8 @@ export class MyInfoComponent implements OnInit {
   @Input()
   user: User = <User>{};
 
+  errMessage: string = "";
+  okMessage: string = "";
   usernameInput: string = "";
   passwordInput: string = "";
   firstNameInput: string = "";
@@ -48,9 +50,14 @@ export class MyInfoComponent implements OnInit {
     formData.append("user_img", file, file.name);
     formData.append("user_email", this.emailInput);
 
-    this.apiServ.updateUser(formData).subscribe(responseBody => {
+    this.apiServ.updateUser(formData).subscribe({next: responseBody => {
       console.log(responseBody.data);
-    })
+      this.okMessage = responseBody.response;
+    },
+    error: badRequest => {
+      this.errMessage = badRequest.error.response;
+      console.log("This is Error MSg: " + this.errMessage);
+    }})
   }
 
 }

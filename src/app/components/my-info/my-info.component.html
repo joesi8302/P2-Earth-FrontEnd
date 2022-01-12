@@ -5,7 +5,10 @@
             <h5>{{this.user.user_first_name + " " + this.user.user_last_name}}</h5>
         </div>
         <div class="card-body ">
+            <div class="err" *ngIf="errMessage">{{errMessage}}</div>
+            <div class="okMes" *ngIf="okMessage">{{okMessage}}</div>
             <div class="card-text ">
+                
                 <div class="description">
                     <span>Username: </span>
                     <input type="text" id="username" [(ngModel)]="usernameInput"  placeholder={{this.user.username}}/> 
@@ -29,10 +32,10 @@
                 <div class="description">
                     <img src="{{this.user.user_img}}" alt="testImg">
                     <br>
-                    <input type="file" (change)="handleFileInput($event)">
+                    <input type="file" id="fileImg" (change)="handleFileInput($event)">
                 </div>
             </div>
                 <button type="button" id="type" class="btn btn-secondary" (click)="updateUser()">Accept</button>
-        </div>
+            </div>
     </div>
 </div>

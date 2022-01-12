@@ -10,10 +10,10 @@
           <h4>Social Network App</h4>
           <li class="nav-item">
             <div>
-            <a class="nav-link" routerLink="/feed">Feed</a>
+            <a class="nav-link" id="feedLink" routerLink="/feed">Feed</a>
           </div>
           <div>
-            <a class="nav-link" routerLink="/account" (click)="personalAccount()" >Account Page</a>
+            <a class="nav-link" id="accountLink" routerLink="/account" (click)="personalAccount()" >Account Page</a>
           </div>
           </li>
           <button class="btn btn-outline-danger" id="logout-btn" (click)="logout()">Logout</button>
