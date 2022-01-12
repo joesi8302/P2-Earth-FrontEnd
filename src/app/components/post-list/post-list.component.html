@@ -2,7 +2,7 @@
 
 <div>
     <button (click)="decrementPage()">Previous Page</button>
-    <span id="pageNum" >{{page}}</span>
+    <span id="pageNum" >{{displayPage}}</span>
     <button (click)="incrementPage()">Next Page</button>
 </div> 
 <div *ngFor="let post of postList " class="post-item">

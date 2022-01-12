@@ -10,7 +10,8 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class PostListAccountComponent implements OnInit {
 
-  page: number = 1;
+  page: number = 0;
+  displayPage: number = this.page +1;
   user: User = <User>{};
 
   postList: Array<Post> = [];
@@ -18,7 +19,6 @@ export class PostListAccountComponent implements OnInit {
   constructor(private apiServ: ApiService) { }
 
   async ngOnInit(): Promise<void> {
-    this.getAllPosts();
 
     let checkUsername = await this.apiServ.grabUsername();
     console.log("checkUsername: " + checkUsername);
@@ -27,11 +27,14 @@ export class PostListAccountComponent implements OnInit {
     this.user = response.data;
     console.log(this.user.userId);
 
+
+    this.getAllPosts();
+
   }
 
   getAllPosts(){
-    this.apiServ.getAllUserPosts(this.apiServ.grabUsername()).subscribe(responseBody => {
-      console.log(responseBody);
+    this.apiServ.getAllPostsUserPage(this.page, this.user.userId).subscribe(responseBody => {
+      console.log(`Displaying post page: ${this.page} `+ responseBody.data);
       this.postList = responseBody.data;
     })
 
