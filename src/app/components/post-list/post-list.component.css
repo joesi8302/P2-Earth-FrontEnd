@@ -33,6 +33,7 @@ div{
     margin: 4px;
     display: flex;
     justify-content: center;
+    
 }
 
 .buttons{
@@ -41,6 +42,7 @@ div{
 
 .page-buttons{
     margin-left: 123px;
+    margin-bottom: 50px;
 }
 
 body {

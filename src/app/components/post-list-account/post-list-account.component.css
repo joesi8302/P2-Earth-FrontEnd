@@ -3,9 +3,10 @@
 }
 
 .card {
-    box-shadow: 4px 4px 4px rgb(78, 78, 78);
+    box-shadow: 4px 4px 4px #262a30;
     margin-top: 5px;
     width: 90%;
+    background-color: #262a30;
 }
 
 
@@ -34,6 +35,7 @@
 
 .page-buttons{
     margin-left: 123px;
+    margin-bottom: 50px;
 }
 
 body {
@@ -56,4 +58,12 @@ body {
 #userinfo img {
     width: 10%;
     height: min-content;
+}
+
+h5{
+    color: whitesmoke;
+}
+
+.post-created{
+    color: whitesmoke;
 }

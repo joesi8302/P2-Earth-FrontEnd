@@ -1,11 +1,7 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-<div class="page-buttons">
-    <button class="btn btn-dark" (click)="decrementPage()">Prev</button>
-    <span><b>{{displayPage}}</b></span>
-    <button class="btn btn-dark" (click)="incrementPage()">Next</button>
-</div> 
+
 <div *ngFor="let post of postList" class="post-item">
     <!-- <app-posts [post]={{post}}></app-posts> -->
     <div id="info-container">
@@ -15,7 +11,7 @@
                     <img src={{post.user.user_img}} alt="userImg" width=50px>
                     <h5>{{post.user.username}}</h5>
                 </div>
-                <div>
+                <div class="post-created">
                     {{post.post_created}}
                 </div>
                     
@@ -33,5 +29,11 @@
         </div>
     </div>
 </div>
+
+<div class="page-buttons">
+    <button class="btn btn-dark" (click)="decrementPage()">Prev</button>
+    <span><b>{{displayPage}}</b></span>
+    <button class="btn btn-dark" (click)="incrementPage()">Next</button>
+</div> 
 
 <div class="pageSelector"></div>
