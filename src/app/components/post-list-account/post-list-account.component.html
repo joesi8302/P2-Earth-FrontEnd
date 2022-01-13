@@ -5,14 +5,15 @@
 <div *ngFor="let post of postList" class="post-item">
     <!-- <app-posts [post]={{post}}></app-posts> -->
     <div id="info-container">
-        <div class="card">
+        <div class="card bg-dark mb-3" id="card-container">
             <div class="card-header">
                 <div>
-                    <img src={{post.user.user_img}} alt="userImg" width=50px>
-                    <h5>{{post.user.username}}</h5>
-                </div>
-                <div class="post-created">
-                    {{post.post_created}}
+                    <div class="post-created">
+                        {{post.post_created}}
+                    </div>
+                    <img src={{post.user.user_img}} class="img" alt="userImg">
+                    <h5 class="name" id="{{'post'+post.post_id}}" (click)="goToAccount(post.user.username)" routerLink="/account">{{post.user.username}}</h5>
+                    
                 </div>
                     
             </div>

@@ -40,6 +40,12 @@ export class PostListAccountComponent implements OnInit {
 
   }
 
+  goToAccount(username: string){
+    this.apiServ.storeUsername(username);
+
+  }
+
+
   incrementPage(){
     this.page++;
     this.apiServ.getAllPostsUserPage(this.page, this.user.userId).subscribe(responseBody => {
