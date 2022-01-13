@@ -16,20 +16,22 @@ export class ForgetPasswordComponent implements OnInit {
 
   constructor(private apiServ: ApiService, private router: Router) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
   }
 
-  forgotPassword(){
+  async forgotPassword(){
 
     console.log(this.emailInput);
 
     let formData:FormData = new FormData();
     formData.append("email", JSON.stringify(this.emailInput));
 
-    this.apiServ.resetPassword(formData).subscribe(responseBody => {
+    var response = await this.apiServ.resetPassword(formData).subscribe(responseBody => {
       console.log(responseBody)
-      
+      this.successMessage = responseBody.response;
+      console.log(this.successMessage)
     })
+    
   }
 
 }
