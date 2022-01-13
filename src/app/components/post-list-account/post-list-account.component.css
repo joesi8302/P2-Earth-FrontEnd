@@ -11,8 +11,8 @@
 
 
 #postImage{
-    height: 50%;
-    width: 50%;
+    height: 500px;
+    width: 800px;
     object-fit: contain;
 }
 
