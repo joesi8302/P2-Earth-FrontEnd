@@ -8,7 +8,8 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./forget-password.component.css']
 })
 export class ForgetPasswordComponent implements OnInit {
-
+  
+  successMessage: string = "";
   errMessage: string = "";
   emailInput: string = "";
 

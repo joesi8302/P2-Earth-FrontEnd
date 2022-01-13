@@ -32,6 +32,10 @@ export class PostListAccountComponent implements OnInit {
 
   }
 
+  triggerPosts(){
+    
+  }
+
   getAllPosts(){
     this.apiServ.getAllPostsUserPage(this.page, this.user.userId).subscribe(responseBody => {
       console.log(`Displaying post page: ${this.page} `+ responseBody.data);
@@ -39,6 +43,12 @@ export class PostListAccountComponent implements OnInit {
     })
 
   }
+
+  goToAccount(username: string){
+    this.apiServ.storeUsername(username);
+
+  }
+
 
   incrementPage(){
     this.page++;

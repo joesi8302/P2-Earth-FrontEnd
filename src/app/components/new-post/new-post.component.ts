@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
+import { PostListAccountComponent } from '../post-list-account/post-list-account.component';
 
 @Component({
   selector: 'app-new-post',
@@ -13,7 +14,7 @@ export class NewPostComponent implements OnInit {
   public postImgInput: FileList = <FileList> {}
   
 
-  constructor(private apiServ: ApiService) {  }
+  constructor(private apiServ: ApiService, private list : PostListAccountComponent) {  }
 
   ngOnInit(): void {
   }
@@ -22,7 +23,7 @@ export class NewPostComponent implements OnInit {
     this.postImgInput = event.target.files;
   }
 
-createPost(){
+async createPost(){
 
   console.log(this.postImgInput);
 
@@ -43,11 +44,15 @@ createPost(){
         formData.append("postImg", file, file.name);
         formData.append("description", JSON.stringify(this.descriptionInput));
         
-        this.apiServ.createPost(formData).subscribe(responseBody =>{
+        var response = await this.apiServ.createPost(formData).subscribe(responseBody =>{
           console.log(responseBody);
+          if(responseBody.data){
+            this.list.getAllPosts();
+          }
         })
       }
 
+      
 
   }
 }
