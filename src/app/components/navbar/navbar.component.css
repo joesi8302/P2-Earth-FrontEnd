@@ -17,17 +17,15 @@
     margin-right:20px;
 }
 
-.nav-link{
-    
-}
-h4{
+
+h2{
     color: gray;
     margin-top: 5px;
 }
 
 .btn-group{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: right;
     margin-top: 5px;
     
     
