@@ -13,40 +13,40 @@ export class ApiService {
 
 
   register(formData:FormData) : Observable<any> {
-    return this.httpCli.post<any>("http://localhost:9000/users", formData)
+    return this.httpCli.post<any>("http://ec2-13-59-85-147.us-east-2.compute.amazonaws.com:9000/users", formData)
   }
 
   login(username: string, password: string) : Observable<any> {
-    return this.httpCli.post<any>("http://localhost:9000/session", {
+    return this.httpCli.post<any>("http://ec2-13-59-85-147.us-east-2.compute.amazonaws.com:9000/session", {
       "username": username,
       "password": password
     }, {
-      withCredentials: true 
+      withCredentials: true
     })
   }
 
   checkSession() : Observable<any>{
-    return this.httpCli.get<any>("http://localhost:9000/session", {
-      withCredentials: true 
+    return this.httpCli.get<any>("http://ec2-13-59-85-147.us-east-2.compute.amazonaws.com:9000/session", {
+      withCredentials: true
     })
   }
 
   logout(){
-    return this.httpCli.delete<any>("http://localhost:9000/session", {
+    return this.httpCli.delete<any>("http://ec2-13-59-85-147.us-east-2.compute.amazonaws.com:9000/session", {
       withCredentials: true
     })
   }
 
   getOneUser(username: String) : Observable<any>{
-    return this.httpCli.get<any>(`http://localhost:9000/users/${username}`, {withCredentials: true})
+    return this.httpCli.get<any>(`http://ec2-13-59-85-147.us-east-2.compute.amazonaws.com:9000/users/${username}`, {withCredentials: true})
   }
 
   updateUser(formData : FormData) : Observable<any>{
-    return this.httpCli.put<any>(`http://localhost:9000/users`, formData)
+    return this.httpCli.put<any>(`http://ec2-13-59-85-147.us-east-2.compute.amazonaws.com:9000/users`, formData)
   }
 
   resetPassword(formData : FormData) : Observable<any>{
-    return this.httpCli.put<any>(`http://localhost:9000/users/reset`, formData)
+    return this.httpCli.put<any>(`http://ec2-13-59-85-147.us-east-2.compute.amazonaws.com:9000/reset`, formData)
   }
 
   storeUsername(username: String){
@@ -60,39 +60,39 @@ export class ApiService {
   }
 
   // createPost(postImg: File, description: String){
-  //   return this.httpCli.post<any>(`http://localhost:9000/posts`,{ 
+  //   return this.httpCli.post<any>(`http://localhost:9000/posts`,{
   //     "postImg": postImg,
   //     "description": description
-  //   }, 
+  //   },
   //   {withCredentials: true,
   //    headers: new HttpHeaders({ "Content-Type": "multipart/form-data" })})
   // }
 
   createPost(formData : FormData) : Observable<any>{
-    return this.httpCli.post<any>(`http://localhost:9000/posts`, formData, 
+    return this.httpCli.post<any>(`http://ec2-13-59-85-147.us-east-2.compute.amazonaws.com:9000/posts`, formData,
     {withCredentials: true
      })
   }
 
-  // headers: new HttpHeaders({ "Content-Type": "multipart/form-data" 
+  // headers: new HttpHeaders({ "Content-Type": "multipart/form-data"
 
 
   getAllPosts() : Observable<any>{
-    return this.httpCli.get<any>(`http://localhost:9000/posts` ,{ withCredentials: true }) 
+    return this.httpCli.get<any>(`http://ec2-13-59-85-147.us-east-2.compute.amazonaws.com:9000/posts` ,{ withCredentials: true })
   }
 
   getAllUserPosts(username: String) : Observable<any>{
-    return this.httpCli.get<any>(`http://localhost:9000/posts/` ,{ withCredentials: true }) 
+    return this.httpCli.get<any>(`http://ec2-13-59-85-147.us-east-2.compute.amazonaws.com:9000/posts/` ,{ withCredentials: true })
   }
 
   getAllPostsPage(page: number) : Observable<any>{
-    return this.httpCli.get<any>(`http://localhost:9000/pagedposts/${page}` ,{ withCredentials: true }) 
+    return this.httpCli.get<any>(`http://ec2-13-59-85-147.us-east-2.compute.amazonaws.com:9000/pagedposts/${page}` ,{ withCredentials: true })
   }
 
   getAllPostsUserPage(page: number, userId: number) : Observable<any>{
-    return this.httpCli.get<any>(`http://localhost:9000/pagedposts/${page}/${userId}` ,{ withCredentials: true }) 
+    return this.httpCli.get<any>(`http://ec2-13-59-85-147.us-east-2.compute.amazonaws.com:9000/pagedposts/${page}/${userId}` ,{ withCredentials: true })
   }
-  
+
 
 
 }
