@@ -11,7 +11,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 export class PostListComponent implements OnInit {
 
   page: number = 0;
-  displayPage: number = this.page +1;
+  displayPage: number = (this.page +1);
 
   postList: Array<Post> = [];
 

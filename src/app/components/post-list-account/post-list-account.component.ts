@@ -11,7 +11,7 @@ import { ApiService } from 'src/app/services/api.service';
 export class PostListAccountComponent implements OnInit {
 
   page: number = 0;
-  displayPage: number = this.page +1;
+  displayPage: number = 1;
   user: User = <User>{};
 
   postList: Array<Post> = [];
@@ -52,10 +52,12 @@ export class PostListAccountComponent implements OnInit {
 
   incrementPage(){
     this.page++;
+    this.displayPage++;
     this.apiServ.getAllPostsUserPage(this.page, this.user.userId).subscribe(responseBody => {
       console.log(responseBody);
       if(responseBody.data == 0){
         this.page--;
+        this.displayPage--;
         console.log(this.postList.length);  
       }
       else{
@@ -67,13 +69,16 @@ export class PostListAccountComponent implements OnInit {
 
   decrementPage(){
     this.page--;
+    this.displayPage--;
     if(this.page < 0){
       this.page = 0;
+      this.displayPage = 1;
     }
     this.apiServ.getAllPostsUserPage(this.page, this.user.userId).subscribe(responseBody => {
       console.log(responseBody);
       if(responseBody.data.lentgh == 0){
           this.page++;
+          this.displayPage--;
         }
       else{
         this.postList = responseBody.data;
