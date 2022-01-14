@@ -11,7 +11,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 export class PostListComponent implements OnInit {
 
   page: number = 0;
-  displayPage: number = this.page +1;
+  displayPage: number = 1;
 
   postList: Array<Post> = [];
 
@@ -37,10 +37,12 @@ export class PostListComponent implements OnInit {
 
   incrementPage(){
     this.page++;
+    this.displayPage++;
     this.apiServ.getAllPostsPage(this.page).subscribe(responseBody => {
       console.log(responseBody);
       if(responseBody.data == 0){
         this.page--;
+        this.displayPage--;
         console.log(this.postList.length);  
       }
       else{
@@ -52,13 +54,16 @@ export class PostListComponent implements OnInit {
 
   decrementPage(){
     this.page--;
+    this.displayPage--;
     if(this.page < 0){
       this.page = 0;
+      this.displayPage = 1;
     }
     this.apiServ.getAllPostsPage(this.page).subscribe(responseBody => {
       console.log(responseBody);
       if(responseBody.data.lentgh == 0){
           this.page++;
+          this.displayPage++;
         }
       else{
         this.postList = responseBody.data;
